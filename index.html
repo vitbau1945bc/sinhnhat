@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc mừng sinh nhật</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Âm Nhạc Tự Động Phát -->
+  <audio autoplay loop>
+    <source src="" type="audio/mp3">
+  </audio>
+
+  <div id="container">
+    <h1>Happy 19th Birthday, An!</h1>
+    <p>Happy Birthday! As you celebrate your 19th journey around the sun, I wanted to take a moment to send you warm wishes and heartfelt congratulations on reaching this remarkable milestone.
+    </p>
+  </div>
+
+  <img src="https://cdn-icons-png.flaticon.com/512/1081/1081003.png" id="letter" alt="Open Letter" onclick="showPopup(1)">
+
+  <!-- Popup 1 -->
+  <div id="popup1" class="popup" onclick="hidePopup(1)">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <h2>Happy birthday, An</h2>
+      <p>Nineteen years ago, you entered this world, bringing joy and light to those around you. Since then, you've grown into an incredible person, full of unique qualities and talents. Your journey so far has undoubtedly been filled with laughter, challenges, and a multitude of experiences that have shaped you into the amazing individual you are today.
+      </p>
+      <img src="https://pngimg.com/d/cake_PNG96920.png" alt="Birthday Cake">
+      <div class="button-container">
+        <button onclick="hidePopup(1)">Close</button>
+        <button onclick="showPopup(2)">Next Wish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup 2 -->
+  <div id="popup2" class="popup" onclick="hidePopup(2)">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <h2>An, Happy Birthday</h2>
+      <p>As you stand on the threshold of adulthood, embrace the opportunities and adventures that lie ahead. This is a time of self-discovery, learning, and growth. May the coming year be filled with exciting new chapters, meaningful connections, and the fulfillment of your dreams and aspirations.</p>
+      <img src="https://pngimg.com/d/cake_PNG96920.png" alt="Birthday Cake">
+      <div class="button-container">
+        <button onclick="hidePopup(2)">Close</button>
+        <button onclick="showPopup(3)">Next Wish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup 3 -->
+  <div id="popup3" class="popup" onclick="hidePopup(3)">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <h2>Happy An's Birthday</h2>
+      <p>On your special day, take a moment to reflect on the beautiful journey behind you and the promising path that awaits. Surround yourself with the love of friends and family, and may the year ahead bring you immense happiness, success, and fulfillment in all your endeavors.</p>
+      <br><strong>Tien Anh</strong><br>
+      <img src="https://pngimg.com/d/cake_PNG96920.png" alt="Birthday Cake">
+      <div class="button-container">
+        <button onclick="hidePopup(3)">Close</button>
+      </div>
+    </div>
+  </div>
+    <!-- Real-time clock -->
+    <div id="clock-container">  
+      <div id="clock"></div>
+    </div> 
+
+
+  <script>
+    // Function to update the clock
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const date = now.toDateString(); // Get the current date as a string
+      document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}- ${date}`;
+  
+    }
+
+    // Initial call to update the clock
+    updateClock();
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Thay Đổi Màu Nền Theo Thời Gian
+    const hour = new Date().getHours();
+    const body = document.body;
+
+    if (hour < 6 || hour >= 18) {
+      body.style.background = "linear-gradient(#000, #123456)";
+    } else if (hour < 12) {
+      body.style.background = "linear-gradient(#FFF2CC, #FFD966)";
+    } else {
+      body.style.background = "linear-gradient(#F4B183, #DFA67B)";
+    }
+
+    // Hiển thị và ẩn Popup
+    function showPopup(num) {
+      document.getElementById("popup" + num).style.display = "flex";
+    }
+    
+    function hidePopup(num) {
+      document.getElementById("popup" + num).style.display = "none";
+    }
+  </script>
+</body>
+</html>
